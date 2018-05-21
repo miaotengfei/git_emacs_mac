@@ -35,6 +35,19 @@
 ;; 这一行代码，将函数 open-init-file 绑定到 <f2> 键上
 (global-set-key (kbd "<f2>") 'open-init-file)
 
+;; 开启全局 Company 补全
+(global-company-mode 1)
+
+;;关闭自动备份
+;;(setq make-backup-files nil)
+
+;;显示最近编辑过的文件
+(require 'recentf)
+(recentf-mode 1)
+(setq recentf-max-menu-item 10)
+;; 这个快捷键绑定可以用之后的插件 counsel 代替
+;; (global-set-key (kbd "C-x C-r") 'recentf-open-files)
+
 
 
 
