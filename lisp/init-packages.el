@@ -54,8 +54,8 @@
 (global-hungry-delete-mode)
 
 
-;;smartparens右括号补全
-(require 'smartparens-config)
+;;smartparens右括号补全是自动加载的故注释掉
+;;(require 'smartparens-config)
 ;; Always start smartparens mode in js-mode.
 ;;(add-hook 'js-mode-hook 'smartparens-mode)
 (smartparens-global-mode t)
