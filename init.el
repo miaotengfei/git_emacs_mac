@@ -2,70 +2,15 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-;;(package-initialize)
+(package-initialize)
 
-;;安装package
-(when (>= emacs-major-version 24)
-     (require 'package)
-     (package-initialize)
-     (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                      ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+(load "init-packages")
+(setq ring-bell-function 'ignore)
 
-;; 注意 elpa.emacs-china.org 是 Emacs China 中文社区在国内搭建的一个 ELPA 镜像
 
- ;; cl - Common Lisp Extension
- (require 'cl)
 
- ;; Add Packages
- (defvar my/packages '(
-                ;; --- Auto-completion ---
-                company
-                ;; --- Better Editor ---
-                hungry-delete
-                swiper
-                counsel
-                smartparens
-                ;; --- Major Mode ---
-                js2-mode
-                ;; --- Minor Mode ---
-                nodejs-repl
-                exec-path-from-shell
-                ;; --- Themes ---
-                monokai-theme
-                ;; solarized-theme
-                ) "Default packages")
 
- (setq package-selected-packages my/packages)
-
- (defun my/packages-installed-p ()
-     (loop for pkg in my/packages
-           when (not (package-installed-p pkg)) do (return nil)
-           finally (return t)))
-
- (unless (my/packages-installed-p)
-     (message "%s" "Refreshing package database...")
-     (package-refresh-contents)
-     (dolist (pkg my/packages)
-       (when (not (package-installed-p pkg))
-         (package-install pkg))))
-
- ;; Find Executable Path on OS X
- (when (memq window-system '(mac ns))
-   (exec-path-from-shell-initialize))
-
-;;安装主题
-(add-to-list 'my/packages 'monokai-theme)
-;;每次打开编辑器加载主题
-(load-theme 'monokai 1)
-
-;;开启hungry-delete快速删除空格
-(require 'hungry-delete)
-(global-hungry-delete-mode)
-
-;;swiper启用和配置 自动命令补全
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
@@ -83,11 +28,6 @@
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
 
-;;smartparens右括号补全
-(require 'smartparens-config)
-;; Always start smartparens mode in js-mode.
-;;(add-hook 'js-mode-hook 'smartparens-mode)
-(smartparens-global-mode t)
 
 ;; 关闭工具栏，tool-bar-mode 即为一个 Minor Mode
 (tool-bar-mode -1)
@@ -97,6 +37,15 @@
 
 ;; 显示行号
 (global-linum-mode 1)
+
+;;快速简化输入
+(abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table '(
+					    ;; signature
+					    ("miao" "miaotengfei")
+					    ;;Microsoft
+					    ("8ms" "Microsoft")
+					    ))
 
 ;; 更改光标的样式（不能生效，解决方案见第二集）
 (setq-default cursor-type 'bar)
@@ -119,12 +68,15 @@
 ;; 这一行代码，将函数 open-init-file 绑定到 <f2> 键上
 (global-set-key (kbd "<f2>") 'open-init-file)
 
-;; 开启全局 Company 补全
-(global-company-mode 1)
+
 
 ;;关闭自动备份
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
+
+;;git恢复后自动加载
+(global-auto-revert-mode t)
 ;;显示最近编辑过的文件
 (require 'recentf)
 (recentf-mode 1)
@@ -144,15 +96,6 @@
 ;;高亮当前行
 (global-hl-line-mode 1)
 
-;;JavaScript IDE 设置
-(setq auto-mode-alist
-      (append
-       '(("\\.js\\'" . js2-mode))
-       auto-mode-alist))
-
-;;寻找nodejs地址
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
 
 ;;Org-mode 文本内语法高亮
 (require 'org)
@@ -169,13 +112,14 @@
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0.08)
- '(company-minimum-prefix-length 1)
+ '(company-minimum-prefix-length 2)
  '(package-selected-packages (quote (company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
