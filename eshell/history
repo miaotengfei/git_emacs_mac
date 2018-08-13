@@ -1,0 +1,16 @@
+ls -a
+git status
+cat ~/gitconfug
+cat ~/.gitconfug
+cat .gitconfig
+ls 
+cat auto-save-list/
+git status
+git config --global alias.st status
+git st
+git checkout
+git diff init.el 
+cat ~/.gitconfig 
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.br branch

@@ -29,6 +29,9 @@
                 ;; --- Themes ---
                 monokai-theme
                 ;; solarized-theme
+
+		;;---open files in finder---
+		reveal-in-osx-finder
                 ) "Default packages")
 
  (setq package-selected-packages my/packages)

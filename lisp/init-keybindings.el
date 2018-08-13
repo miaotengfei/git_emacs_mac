@@ -32,4 +32,19 @@
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
 
+;;缩写代码补全快捷键绑定
+(global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+
+;;Hipper 补全按键绑定
+(global-set-key (kbd "s-/") 'hippie-expand)
+
+;; 主动加载 Dired Mode按键绑定
+;; (require 'dired)
+;; (defined-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
+
+;; 延迟加载按键绑定
+(with-eval-after-load 'dired
+    (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
+
 (provide 'init-keybindings)
