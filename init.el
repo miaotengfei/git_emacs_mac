@@ -25,10 +25,10 @@
 ;; (electric-indent-mode -1)
 
 ;; 更改显示字体大小 16pt
-;; http://stackoverflow.com/questions/294664/how-to-set-the-font-size-in-emacs
+;; http://stackoverflow.com/questions/294664/how-to-set-the-font-size-in-emacs2
 ;;(set-face-attribute 'default nil :height 160)
 
-
-
-
-
+;;org-mode管理配置文件
+(require 'org-install)
+(require 'ob-tangle)
+;;(org-babel-load-file (expand-file-name "org-file-name.org" user-emacs-directory))

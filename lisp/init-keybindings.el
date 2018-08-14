@@ -3,6 +3,8 @@
 
 ;; 设置 org-agenda 打开快捷键
 (global-set-key (kbd "C-c a") 'org-agenda)
+;; 设置待办事项的优先级/触发键
+(global-set-key (kbd "C-c r") 'org-capture)
 
 ;;按键绑定
 (global-set-key (kbd "C-h C-f") 'find-function)
@@ -46,5 +48,34 @@
 (with-eval-after-load 'dired
     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
+;;增强选中一个区域
+(global-set-key (kbd "C-=") 'er/expand-region)
+;;Occur Mode 快捷键
+(global-set-key (kbd "M-s o") 'occur-dwim)
+;;imenu快捷键
+(global-set-key (kbd "M-s i") 'counsel-imenu)
+;;iedit绑定快捷键
+(global-set-key (kbd "M-s e") 'iedit-mode)
+
+;;快速建立工作安排
+(global-set-key (kbd "C-c r") 'org-capture)
+
+;;设置web-mode在2/4个空格之间切换
+(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+
+;;补全时按键绑定
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
+
+
+;;ag搜索快捷键绑定
+(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
+
+;;auto-yasnippet 快捷键设置
+;;(global-set-key (kbd "H-w") #'aya-create)
+;;(global-set-key (kbd "H-y") #'aya-expand)
 
 (provide 'init-keybindings)
