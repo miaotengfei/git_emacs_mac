@@ -6,7 +6,9 @@
  '(company-idle-delay 0.08)
  '(company-minimum-prefix-length 1)
  '(org-pomodoro-long-break-length 30)
- '(package-selected-packages (quote (company)))
+ '(package-selected-packages
+   (quote
+    (pallet ack package-build shut-up epl git commander f dash s ace-window company)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 90))
 (custom-set-faces

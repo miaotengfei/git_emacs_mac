@@ -1,3 +1,5 @@
+;;cl - Common Lisp Extension
+(require 'cl)
 ;;安装package
 (when (>= emacs-major-version 24)
      ;;(require 'package)
@@ -7,8 +9,7 @@
 
 ;; 注意 elpa.emacs-china.org 是 Emacs China 中文社区在国内搭建的一个 ELPA 镜像
 
- ;; cl - Common Lisp Extension
- (require 'cl)
+
 
  ;; Add Packages
  (defvar my/packages '(
@@ -44,7 +45,8 @@
 		;;语法检查器
 		flycheck
 		;;auto-yasnippet
-		
+		;;
+		;;pallet
                 ) "Default packages")
 
  (setq package-selected-packages my/packages)
