@@ -152,7 +152,8 @@
 		  "return links as string\n"))))
     (format "%s" (s-chop-suffix "\"" (s-chop-prefix "\"" result)))))
 
-
+;;python3 环境设置
+(setq python-shell-interpreter "/usr/local/bin/python3")
 
 
 (provide 'init-better-defaults)

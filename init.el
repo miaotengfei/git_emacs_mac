@@ -3,11 +3,10 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
-
-;; (require 'cask "~/.cask/cask.el")
-;; (cask-initialize)
-;; (require 'pallet)
-;; (pallet-mode t)
+(require 'cask "/usr/local/Cellar/cask/0.8.4/cask.el")
+(cask-initialize)
+(require 'pallet)
+(pallet-mode t)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 ;; 快速打开配置文件

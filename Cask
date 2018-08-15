@@ -1,6 +1,7 @@
 (source "gnu" "http://elpa.emacs-china.org/gnu/")
 (source "melpa" "http://elpa.emacs-china.org/melpa/")
 
+(depends-on "2048-game")
 (depends-on "ace-window")
 (depends-on "ack")
 (depends-on "alert")
