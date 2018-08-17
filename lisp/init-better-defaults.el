@@ -34,10 +34,10 @@
   (cond ((looking-at-p "\\s(") (funcall fn))
         (t (save-excursion
              (ignore-errors (backward-up-list))
-             (funcall fn)))))
+          (funcall fn)))))
 
 ;;选中一段文输入替换功能开启
-(delete-selection-mode 1)
+(delete-selection-mode )
 
 ;;简化输入yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -154,7 +154,4 @@
 
 ;;python3 环境设置
 (setq python-shell-interpreter "/usr/local/bin/python3")
-
-
-(provide 'init-better-defaults)
-
+(setq python-indent-guess-indent-offset nil)
