@@ -3,7 +3,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-idle-delay 0.08)
+ '(anaconda-mode-installation-directory "~/.emacs.d/elpa/anaconda-mode")
+ '(company-dabbrev-code-time-limit 0.05)
+ '(company-dabbrev-minimum-length 1)
+ '(company-dabbrev-time-limit 0.05)
+ '(company-idle-delay 0.05)
  '(company-minimum-prefix-length 1)
  '(org-pomodoro-long-break-length 30)
  '(package-selected-packages

@@ -44,9 +44,11 @@
 		helm-ag
 		;;语法检查器
 		flycheck
+		py-autopep8
 		;;auto-yasnippet
 		;;
 		pallet
+		;;语法补全
 		company-anaconda
 		anaconda-mode
                 ) "Default packages")
@@ -149,11 +151,17 @@
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 
+
+;; enable autopep8 formatting on save
+(require 'py-autopep8)
+(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+(setq py-autopep8-options '("--max-line-length=100"))
+;;(add-hook 'python-mode-hook 'flycheck-mode)
+;;(add-hook 'before-save-hook 'py-autopep8-enable-on-save)
 ;;python 追加补全
 (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'python-mode-hook
 	  (lambda()
-	    (set (make-local-variable 'company-backends)  '((company-anaconda company-dabbrev-code) company-dabbrev))))
+	    (set (make-local-variable 'company-backends)  '((company-anaconda company-dabbrev-code ) company-dabbrev))))
 
-
-(provide 'init-packages.el)
+(provide 'init-packages)
