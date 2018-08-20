@@ -8,9 +8,6 @@
                       ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
 
 ;; 注意 elpa.emacs-china.org 是 Emacs China 中文社区在国内搭建的一个 ELPA 镜像
-
-
-
  ;; Add Packages
  (defvar my/packages '(
                 ;; --- Auto-completion ---
@@ -134,8 +131,6 @@
       (setq css-indent-offset (if (= css-indent-offset 2) 4 2)))
   (setq indent-tabs-mode nil))
 
-
-
 ;;js2-refactor设置
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 (js2r-add-keybindings-with-prefix "C-c C-m")
@@ -148,20 +143,32 @@
 ;;语法检查器flychck
 (add-hook 'js2-mode-hook 'flycheck-mode)
 ;;代码块补全
-(yas-reload-all)
-(add-hook 'prog-mode-hook #'yas-minor-mode)
-
+;; (yas-reload-all)
+;; (add-hook 'prog-mode-hook #'yas-minor-mode)
 
 ;; enable autopep8 formatting on save
-(require 'py-autopep8)
-(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+(require 'py-autopep8)(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 (setq py-autopep8-options '("--max-line-length=100"))
 ;;(add-hook 'python-mode-hook 'flycheck-mode)
-;;(add-hook 'before-save-hook 'py-autopep8-enable-on-save)
+
 ;;python 追加补全
+;; github 说明
+;; (eval-after-load "company"
+;;   '(add-to-list 'company-backends 'company-anaconda))
+
+;; zilongshanren 说明
+;; (add-hook 'python-mode-hook
+;; 	  (lambda()
+;; 	    (set (make-local-variable 'company-backends)  '((company-anaconda company-dabbrev-code ) company-dabbrev))))
+
+;; 网络资源
 (add-hook 'python-mode-hook 'anaconda-mode)
-(add-hook 'python-mode-hook
-	  (lambda()
-	    (set (make-local-variable 'company-backends)  '((company-anaconda company-dabbrev-code ) company-dabbrev))))
+(global-eldoc-mode -1)
+;; (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+;; (add-hook 'python-mode-hook
+;;           (lambda ()
+;;             (set (make-local-variable 'company-backends)
+;;                  '((company-anaconda company-dabbrev-code company-yasnippet)))))
+
 
 (provide 'init-packages)

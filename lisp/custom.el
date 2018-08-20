@@ -6,9 +6,9 @@
  '(anaconda-mode-installation-directory "~/.emacs.d/elpa/anaconda-mode")
  '(company-dabbrev-code-time-limit 0.05)
  '(company-dabbrev-minimum-length 1)
- '(company-dabbrev-time-limit 0.05)
  '(company-idle-delay 0.05)
  '(company-minimum-prefix-length 1)
+ '(company-transformers (quote (company-sort-by-backend-importance)))
  '(org-pomodoro-long-break-length 30)
  '(package-selected-packages
    (quote
