@@ -27,7 +27,11 @@
 (setq recentf-max-menu-item 20)
 
 ;;启用自动括号匹配
-(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+;;(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+(sp-pair "(" nil :unless '(sp-point-before-word-p))
+(sp-pair "[" nil :unless '(sp-point-before-word-p))
+(sp-pair "{" nil :unless '(sp-point-before-word-p))
+(sp-local-pair 'latex-mode "$" nil :unless '(sp-point-before-word-p))
 ;;在括号内就高亮括号
 (define-advice show-paren-function (:around (fn) fix-show-paren-function)
   "Highlight enclosing parens."
