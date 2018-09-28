@@ -153,23 +153,25 @@
 
 ;;python 追加补全
 ;; github 说明
-(eval-after-load "company"
-  '(add-to-list 'company-backends 'company-anaconda))
+;; (eval-after-load "company"
+;;  '(add-to-list 'company-backends 'company-anaconda))
 
-;; zilongshanren 说明
-;; (add-hook 'python-mode-hook
-;; 	  (lambda()
-;; 	    (set (make-local-variable 'company-backends)  '((company-anaconda company-dabbrev-code ) company-dabbrev))))
+;; zilongshanren
+(add-hook 'python-mode-hook 'anaconda-mode)
+(add-hook 'python-mode-hook
+	  (lambda()
+	    (set (make-local-variable 'company-backends)  '((company-anaconda company-dabbrev-code ) company-dabbrev))))
 
 ;; 网络资源
 ;; (remove-hook 'anaconda-mode-response-read-fail-hook
 ;;                'anaconda-mode-show-unreadable-response)
-(add-hook 'python-mode-hook 'anaconda-mode)
-(add-hook 'after-init-hook 'global-company-mode)
-(eval-after-load 'company
-(progn
-    '(add-to-list 'company-backends 'company-anaconda)
-    ))
+
+
+;; (add-hook 'after-init-hook 'global-company-mode)
+;; (eval-after-load 'company
+;; (progn
+;;     '(add-to-list 'company-backends 'company-anaconda)
+;;     ))
 
 (global-eldoc-mode -1)
 ;; (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
