@@ -159,6 +159,8 @@
 ;;python3 环境设置
 (setq python-shell-interpreter "/usr/local/anaconda3/bin/python3")
 (setq python-indent-guess-indent-offset nil)
+;;删除警告You appear to be setting environment variables ("PATH") in your .bashrc or .zshrc
+(setq exec-path-from-shell-arguments '("-l"))
 
 ;;语法高亮
 (setq font-lock-maximum-decoration t)

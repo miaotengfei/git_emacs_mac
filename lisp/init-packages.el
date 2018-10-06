@@ -161,7 +161,8 @@
 (add-hook 'python-mode-hook
 	  (lambda()
 	    (set (make-local-variable 'company-backends)'((company-anaconda company-dabbrev-code ) company-dabbrev)))
-	    (setenv "LANG" "en_GB.UTF-8"))
+	  (setenv "LANG" "en_GB.UTF-8")
+	  (modify-syntax-entry ?_ "w"))
 ;;(add-hook 'python-mode-hook (setenv "LANG" "UTF-8"))
 
 ;; 网络资源

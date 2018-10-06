@@ -74,6 +74,11 @@
 ;;ag搜索快捷键绑定
 (global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
 
+;;python main()程序不运行
+;; Make C-c C-c behave like C-u C-c C-c in Python mode
+(require 'python)
+(define-key python-mode-map (kbd "C-c C-c")
+  (lambda () (interactive) (python-shell-send-buffer t)))
 ;;auto-yasnippet 快捷键设置
 ;;(global-set-key (kbd "H-w") #'aya-create)
 ;;(global-set-key (kbd "H-y") #'aya-expand)
