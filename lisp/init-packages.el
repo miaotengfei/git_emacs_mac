@@ -160,7 +160,9 @@
 (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'python-mode-hook
 	  (lambda()
-	    (set (make-local-variable 'company-backends)  '((company-anaconda company-dabbrev-code ) company-dabbrev))))
+	    (set (make-local-variable 'company-backends)'((company-anaconda company-dabbrev-code ) company-dabbrev)))
+	    (setenv "LANG" "en_GB.UTF-8"))
+;;(add-hook 'python-mode-hook (setenv "LANG" "UTF-8"))
 
 ;; 网络资源
 ;; (remove-hook 'anaconda-mode-response-read-fail-hook

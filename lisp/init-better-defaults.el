@@ -159,6 +159,7 @@
 ;;python3 环境设置
 (setq python-shell-interpreter "/usr/local/anaconda3/bin/python3")
 (setq python-indent-guess-indent-offset nil)
+
 ;;语法高亮
 (setq font-lock-maximum-decoration t)
 
