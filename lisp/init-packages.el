@@ -48,6 +48,10 @@
 		;;语法补全
 		company-anaconda
 		anaconda-mode
+		;;命令快捷键
+		smex
+		;;docs
+		dash-at-point
                 ) "Default packages")
 
  (setq package-selected-packages my/packages)
@@ -157,31 +161,11 @@
 ;;  '(add-to-list 'company-backends 'company-anaconda))
 
 ;; zilongshanren
-(add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'python-mode-hook
 	  (lambda()
-	    (set (make-local-variable 'company-backends)'((company-anaconda company-dabbrev-code ) company-dabbrev)))
-	  (setenv "LANG" "en_GB.UTF-8")
-	  (modify-syntax-entry ?_ "w"))
-;;(add-hook 'python-mode-hook (setenv "LANG" "UTF-8"))
-
-;; 网络资源
-;; (remove-hook 'anaconda-mode-response-read-fail-hook
-;;                'anaconda-mode-show-unreadable-response)
-
-
-;; (add-hook 'after-init-hook 'global-company-mode)
-;; (eval-after-load 'company
-;; (progn
-;;     '(add-to-list 'company-backends 'company-anaconda)
-;;     ))
-
+        (set (make-local-variable 'company-backends)'((company-anaconda company-dabbrev-code ) company-dabbrev)))
+        (setenv "LANG" "en_GB.UTF-8")
+        (modify-syntax-entry ?_ "w"))
+(add-hook 'python-mode-hook 'anaconda-mode)
 (global-eldoc-mode -1)
-;; (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
-;; (add-hook 'python-mode-hook
-;;           (lambda ()
-;;             (set (make-local-variable 'company-backends)
-;;                  '((company-anaconda company-dabbrev-code company-yasnippet)))))
-
-
 (provide 'init-packages)

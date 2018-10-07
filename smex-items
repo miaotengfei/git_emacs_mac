@@ -1,0 +1,21 @@
+
+;; ----- smex-history -----
+(
+ chrome/insert-chrome-current-tab-url
+ anaconda-mode
+ dash-at-point-with-docset
+ package-delete
+ eval-buffer
+ shell
+ cd
+)
+
+;; ----- smex-data -----
+(
+ (eval-buffer . 2)
+ (shell . 1)
+ (anaconda-mode . 2)
+ (package-delete . 1)
+ (dash-at-point-with-docset . 4)
+ (chrome/insert-chrome-current-tab-url . 2)
+)

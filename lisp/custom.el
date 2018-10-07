@@ -12,7 +12,7 @@
  '(org-pomodoro-long-break-length 30)
  '(package-selected-packages
    (quote
-    (2048-game avy counsel exec-path-from-shell expand-region flycheck helm-ag helm-core hungry-delete iedit js2-refactor monokai-theme multiple-cursors nodejs-repl org-pomodoro pkg-info popup popwin reveal-in-osx-finder smartparens swiper web-mode yasnippet pallet ack package-build shut-up epl git commander f dash s ace-window company)))
+    (2048-game avy counsel exec-path-from-shell expand-region flycheck helm-ag helm-core hungry-delete iedit js2-refactor monokai-theme multiple-cursors nodejs-repl org-pomodoro pkg-info popup popwin reveal-in-osx-finder smartparens swiper web-mode yasnippet pallet ack package-build shut-up epl git commander f s ace-window company)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 90))
 (custom-set-faces

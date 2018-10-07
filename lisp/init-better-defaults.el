@@ -156,6 +156,13 @@
 		  "return links as string\n"))))
     (format "%s" (s-chop-suffix "\"" (s-chop-prefix "\"" result)))))
 
+;;smex setup
+(require 'smex) ; Not needed if you use package.el
+(smex-initialize) ; Can be omitted. This might cause a (minimal) delay
+                    ; when Smex is auto-initialized on its first run.
+
+
+
 ;;python3 环境设置
 (setq python-shell-interpreter "/usr/local/anaconda3/bin/python3")
 (setq python-indent-guess-indent-offset nil)
